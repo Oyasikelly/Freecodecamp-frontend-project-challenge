@@ -1,0 +1,75 @@
+// Define a transition for smooth changes
+$transition: all 0.5s ease;
+$actionBtnsPadding: 0.5rem;
+
+body {
+  transition: $transition;
+}
+
+.App {
+  transition: $transition;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#quote-box {
+  width: 60%;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  transition: $transition;
+  border-radius: 1rem;
+  #text,
+  #author {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: inherit; // Inherit text color from parent
+    transition: $transition;
+  }
+
+  #author {
+    font-style: italic;
+  }
+
+  .action_btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // Define a placeholder
+  %button-style {
+    color: #fff;
+    border: none;
+    padding: $actionBtnsPadding 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: $transition;
+  }
+
+  #new-quote {
+    @extend %button-style;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  %tweet-quote {
+    @extend %button-style;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  #tweet-quote {
+    @extend %tweet-quote;
+  }
+  .tweet-quote {
+    @extend %tweet-quote;
+  }
+}
