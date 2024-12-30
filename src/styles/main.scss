@@ -14,14 +14,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem; // Add padding for smaller screens
 }
 
 #quote-box {
   width: 60%;
+  max-width: 600px; // Limit the width for larger screens
   background-color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   transition: $transition;
   border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Add shadow for better visibility
+
   #text,
   #author {
     font-size: 1.5rem;
@@ -38,6 +42,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; // Allow buttons to wrap on smaller screens
+    gap: 1rem; // Add spacing between buttons
   }
 
   // Define a placeholder
@@ -71,5 +77,39 @@ body {
   }
   .tweet-quote {
     @extend %tweet-quote;
+  }
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  #quote-box {
+    width: 80%;
+    padding: 1rem;
+  }
+
+  #text,
+  #author {
+    font-size: 1.2rem; // Reduce font size for smaller screens
+  }
+
+  .action_btns {
+    flex-direction: column; // Stack buttons vertically
+  }
+}
+
+@media (max-width: 480px) {
+  #quote-box {
+    width: 90%; // Further reduce the width
+    padding: 0.8rem;
+  }
+
+  #text,
+  #author {
+    font-size: 1rem; // Further reduce font size
+  }
+
+  %button-style {
+    font-size: 0.9rem; // Adjust button font size for small screens
+    padding: $actionBtnsPadding 15px;
   }
 }
