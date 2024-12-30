@@ -48,7 +48,7 @@ export default function QuoteBox() {
         >
           New Quote
         </button>
-        <div style={{ display: "flex", gap: "1rem" }}>
+        <div style={{ display: "flex", gap: "0.8rem" }}>
           <a
             id="tweet-quote"
             style={{ backgroundColor: color }}
